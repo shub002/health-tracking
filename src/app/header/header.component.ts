@@ -13,6 +13,7 @@ export class HeaderComponent {
   // navigateToBmiCalculator() {
   //   this.router.navigate(['/bmi-calculator']);
   // }
+  
   toggleNav() {
     this.isNavOpen = !this.isNavOpen;
   }
