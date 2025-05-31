@@ -1,0 +1,50 @@
+<div class="tracker-container">
+    <h2 class="title">Menstrual & Fertility Tracker</h2>
+  
+    <!-- Menstrual Cycle Form -->
+    <div class="section">
+      <h3 class="section-title">Log Menstrual Cycle</h3>
+      <form (ngSubmit)="logCycle()">
+        <label for="startDate">Cycle Start Date:</label>
+        <input type="date" [(ngModel)]="startDate" name="startDate" required />
+  
+        <label for="cycleLength">Cycle Length (days):</label>
+        <input
+          type="number"
+          [(ngModel)]="cycleLength"
+          name="cycleLength"
+          min="21"
+          max="35"
+          required
+        />
+  
+        <label for="periodLength">Period Length (days):</label>
+        <input
+          type="number"
+          [(ngModel)]="periodLength"
+          name="periodLength"
+          min="3"
+          max="7"
+          required
+        />
+  
+        <button type="submit" class="primary-btn">Log Cycle</button>
+      </form>
+    </div>
+  
+    <!-- Insights Section -->
+    <div class="section" *ngIf="nextCycleDate">
+      <h3 class="section-title">Insights</h3>
+      <p>Next Period Start Date: <strong>{{ nextCycleDate | date }}</strong></p>
+      <p>Fertile Window: <strong>{{ fertileWindow }}</strong></p>
+      <p>Ovulation Date: <strong>{{ ovulationDate | date }}</strong></p>
+      <button (click)="setReminder()" class="secondary-btn">Set Reminder</button>
+    </div>
+  
+    <!-- Reminders Section -->
+    <div class="section" *ngIf="reminderSet">
+      <h3 class="section-title">Reminders</h3>
+      <p>Your period reminder is set. You'll be notified before your next period!</p>
+    </div>
+  </div>
+  

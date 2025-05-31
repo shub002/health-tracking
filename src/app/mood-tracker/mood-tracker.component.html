@@ -1,0 +1,43 @@
+<div class="mood-tracker-container">
+    <h2 class="title">Mood Tracker</h2>
+  
+    <!-- Mood Logging Section -->
+    <div class="section mood-logger">
+      <h3 class="section-title">Log Your Mood</h3>
+      <p class="section-description">How are you feeling right now?</p>
+      <div class="mood-options">
+        <button
+          *ngFor="let mood of moods"
+          [class.active]="selectedMood === mood"
+          class="mood-btn"
+          (click)="selectMood(mood)"
+        >
+          <span class="mood-icon">{{ mood.icon }}</span>
+          <span class="mood-name">{{ mood.name }}</span>
+        </button>
+      </div>
+      <textarea
+        class="mood-notes"
+        [(ngModel)]="moodNotes"
+        placeholder="Add notes about your mood (optional)..."
+      ></textarea>
+      <button class="primary-btn" (click)="logMood()">Log Mood</button>
+    </div>
+  
+    <!-- Mood History Section -->
+    <div class="section mood-history">
+      <h3 class="section-title">Mood History</h3>
+      <div *ngIf="moodHistory.length === 0" class="no-history">No mood entries yet.</div>
+      <ul class="mood-list">
+        <li *ngFor="let entry of moodHistory" class="mood-item">
+          <span class="mood-date">{{ entry.date }}</span>
+          <span class="mood-entry">
+            <span class="mood-icon">{{ entry.mood.icon }}</span>
+            <span class="mood-name">{{ entry.mood.name }}</span>
+          </span>
+          <span class="mood-notes" *ngIf="entry.notes">{{ entry.notes }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

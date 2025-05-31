@@ -1,0 +1,88 @@
+<div class="dashboard">
+  <div class="dashboard-header">
+    <h1>Health Dashboard</h1>
+    <p>Track your health metrics in real-time</p>
+    
+    <!-- Welcome message with user's full name and email -->
+    <div class="welcome-message">
+      <p>Welcome, {{ user.fullName }}!</p>
+      <p>Email: {{ user.email }}</p>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <!-- BMI Card -->
+    <mat-card class="card bmi-card">
+      <div class="card-header">
+        <h3><i class="fas fa-weight"></i> BMI</h3>
+        <p>Status: {{ bmiData.status }}</p>
+      </div>
+      <div class="card-content">
+        <mat-progress-spinner
+          [value]="bmiData.progress"
+          mode="determinate"
+          diameter="120"
+          strokeWidth="10"
+          color="primary"
+        ></mat-progress-spinner>
+        <div class="center-text">
+          <span class="bmi-value">{{ bmiData.value }}</span>
+        </div>
+      </div>
+    </mat-card>
+
+    <!-- Protein Intake Card -->
+    <mat-card class="card protein-card">
+      <div class="card-header">
+        <h3><i class="fas fa-drumstick-bite"></i> Protein Intake</h3>
+      </div>
+      <div class="card-content">
+        <p class="progress-text">{{ proteinData.current }}g / {{ proteinData.goal }}g</p>
+        <mat-progress-bar [value]="proteinData.progress" color="accent"></mat-progress-bar>
+        <p class="goal-text">
+          {{ proteinData.goal - proteinData.current }}g to reach your goal
+        </p>
+      </div>
+    </mat-card>
+
+    <!-- Calories Card -->
+    <mat-card class="card calories-card">
+      <div class="card-header">
+        <h3><i class="fas fa-fire"></i> Calories Burned</h3>
+      </div>
+      <div class="card-content">
+        <h2>{{ caloriesData.burnedToday }} kcal</h2>
+        <p>Weekly Goal: {{ caloriesData.weeklyGoal }} kcal</p>
+      </div>
+    </mat-card>
+
+    <!-- Water Intake Card -->
+    <mat-card class="card water-card">
+      <div class="card-header">
+        <h3><i class="fas fa-tint"></i> Water Intake</h3>
+      </div>
+      <div class="card-content">
+        <p class="progress-text">{{ waterData.consumed }}L / {{ waterData.goal }}L</p>
+        <mat-progress-bar [value]="waterData.progress" color="primary"></mat-progress-bar>
+        <p class="goal-text">
+          {{ (waterData.goal - waterData.consumed).toFixed(1) }}L to reach your goal
+        </p>
+      </div>
+    </mat-card>
+
+    <!-- Sleep Tracker Card -->
+    <mat-card class="card sleep-card">
+      <div class="card-header">
+        <h3><i class="fas fa-bed"></i> Sleep Tracker</h3>
+      </div>
+      <div class="card-content">
+        <p class="progress-text">{{ sleepData.hoursSlept }} hours / {{ sleepData.goal }} hours</p>
+        <mat-progress-bar [value]="sleepData.progress" color="warn"></mat-progress-bar>
+        <p class="goal-text">
+          {{ (sleepData.goal - sleepData.hoursSlept).toFixed(1) }} hours to reach your goal
+        </p>
+      </div>
+    </mat-card>
+    
+  </div>
+</div>

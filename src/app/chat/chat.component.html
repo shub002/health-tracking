@@ -1,0 +1,40 @@
+<div class="chat-container">
+    <!-- Circular Bot Icon with Robot Icon -->
+    <div class="bot-icon" (click)="toggleChat()">
+      <i class="fas fa-robot"></i>
+    </div>
+  
+    <!-- Chat Window -->
+    <div class="chat" *ngIf="chatVisible">
+      <div class="chat-header">
+        <h3>Chat with Bot</h3>
+        <button class="close-btn" (click)="toggleChat()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+  
+      <div class="messages">
+        <div *ngFor="let message of messages" class="message" [ngClass]="{'user-message': message.sender === 'User', 'bot-message': message.sender !== 'User'}">
+          <div class="message-content">
+            <strong>{{ message.sender }}:</strong>
+            <p>{{ message.content }}</p>
+          </div>
+          <span class="timestamp">{{ message.timestamp }}</span>
+        </div>
+      </div>
+  
+      <div class="chat-input">
+        <input
+          type="text"
+          [(ngModel)]="userMessage"
+          placeholder="Type a message..."
+          (keyup.enter)="sendMessage()"
+          class="input-field"
+        />
+        <button (click)="sendMessage()" class="send-button">
+          <i class="fas fa-paper-plane"></i> Send
+        </button>
+      </div>
+    </div>
+  </div>
+  

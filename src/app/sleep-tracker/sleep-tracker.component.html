@@ -1,0 +1,55 @@
+<mat-card class="sleep-tracker-card">
+  <div class="card-header">
+    <div class="title">
+      <h3><i class="fas fa-bed"></i> Sleep Tracker</h3>
+      <p>Track your sleep patterns and achieve better rest!</p>
+    </div>
+  </div>
+
+  <div class="card-content">
+    <div class="progress-section">
+      <div class="progress-text">
+        <h2>{{ sleepData.slept.toFixed(1) }}h / {{ sleepData.goal }}h</h2>
+        <p>{{ (sleepData.goal - sleepData.slept).toFixed(1) }}h to reach your goal</p>
+      </div>
+
+      <!-- Sleep Progress -->
+      <mat-progress-bar
+        [value]="sleepData.progress"
+        color="primary"
+        mode="determinate"
+        class="progress-bar"
+      ></mat-progress-bar>
+    </div>
+
+    <!-- Sleep Quality -->
+    <div class="quality-section">
+      <p>Sleep Quality: {{ sleepData.quality }}%</p>
+      <mat-slider
+        min="0"
+        max="100"
+        step="1"
+        [(ngModel)]="sleepData.quality"
+        (input)="updateSleepQuality($event)"
+        thumbLabel
+        tickInterval="10"
+        class="quality-slider"
+        name="sleepQuality"
+      ></mat-slider>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button mat-raised-button color="accent" (click)="updateSleepData(1)">
+        Add 1 hour of sleep
+      </button>
+      <button mat-raised-button color="primary" (click)="resetSleepData()">
+        Reset
+      </button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Better sleep, better life! Track your progress and improve daily.</p>
+  </div>
+</mat-card>

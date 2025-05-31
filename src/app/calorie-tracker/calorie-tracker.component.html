@@ -1,0 +1,93 @@
+<div class="calories-tracker">
+  <div class="header">
+    <h1 class="title">Daily Calories Tracker</h1>
+    <p class="subtitle">Track your daily calorie intake and expenditure efficiently!</p>
+  </div>
+
+  <div class="tracker-cards">
+    <!-- Calories Consumed Card -->
+    <div class="card consumed-card">
+      <div class="card-header">
+        <i class="card-icon fa fa-utensils"></i>
+        <span class="card-title">Calories Consumed</span>
+      </div>
+      <div class="card-content">
+        <h2 class="card-value">{{ caloriesConsumed }} kcal</h2>
+        <mat-progress-bar
+          [value]="(caloriesConsumed / dailyGoal) * 100"
+          color="primary"
+          mode="determinate"
+        ></mat-progress-bar>
+        <button class="action-button" (click)="addCalories()">
+          <i class="fa fa-plus"></i> Add Calories
+        </button>
+      </div>
+    </div>
+
+    <!-- Calories Burned Card -->
+    <div class="card burned-card">
+      <div class="card-header">
+        <i class="card-icon fa fa-fire"></i>
+        <span class="card-title">Calories Burned</span>
+      </div>
+      <div class="card-content">
+        <h2 class="card-value">{{ caloriesBurned }} kcal</h2>
+        <mat-progress-bar
+          [value]="(caloriesBurned / dailyGoal) * 100"
+          color="accent"
+          mode="determinate"
+        ></mat-progress-bar>
+      </div>
+    </div>
+
+    <!-- Daily Goal Tracker -->
+    <div class="card goal-card">
+      <div class="card-header">
+        <i class="card-icon fa fa-check-circle"></i>
+        <span class="card-title">Daily Goal</span>
+      </div>
+      <div class="card-content goal-content">
+        <mat-progress-spinner
+          [value]="(caloriesConsumed / dailyGoal) * 100"
+          mode="determinate"
+          diameter="80"
+          strokeWidth="8"
+          color="warn"
+        ></mat-progress-spinner>
+        <p class="goal-text">{{ caloriesConsumed }} / {{ dailyGoal }} kcal</p>
+      </div>
+    </div>
+
+    <!-- History Log Card -->
+    <div class="card history-card">
+      <div class="card-header">
+        <i class="card-icon fa fa-history"></i>
+        <span class="card-title">History Log</span>
+      </div>
+      <div class="card-content">
+        <mat-list>
+          <mat-list-item *ngFor="let entry of history">
+            {{ entry.date }}: {{ entry.calories }} kcal
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Meal Form -->
+  <div class="add-meal-card">
+    <h3 class="form-title">Add Meal</h3>
+    <mat-form-field class="input-field">
+      <input
+        matInput
+        placeholder="Enter calories consumed"
+        [(ngModel)]="mealCalories"
+        type="number"
+        min="1"
+      />
+    </mat-form-field>
+    <button class="log-button" (click)="logMeal()">
+      <i class="fa fa-check"></i> Log Meal
+    </button>
+  </div>
+</div>

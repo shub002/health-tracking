@@ -1,0 +1,118 @@
+/* General Styles */
+.mindfulness-container {
+  background: linear-gradient(135deg, #eaf8fc, #c8e6ef);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: 20px auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #00509e;
+}
+
+.section {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #0061a8;
+}
+
+.section-description {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 70%;
+}
+
+.primary-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.primary-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.breathing-guide {
+  background: #f0f9ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+  border-left: 5px solid #007bff;
+}
+
+/* Stress Reduction Tips */
+.tips-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tip-item {
+  padding: 10px;
+  background: #f5f5f5;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.tip-item:hover {
+  background-color: #eaf8fc;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,43 @@
+<header>
+  <nav>
+    <div class="logo">
+      <h1 style="color: aliceblue;">Health App</h1>
+    </div>
+    <div class="hamburger" (click)="toggleNav()">
+      <i class="fa fa-bars"></i>
+    </div>
+    <ul class="nav-list" [class.active]="isNavOpen">
+      <li><a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Dashboard</a></li>
+      
+      <!-- Updated Calculator Dropdown -->
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Calculator <i class="fa fa-caret-down"></i></a>
+        <div class="dropdown-content">
+          <a routerLink="/bmi-calculator" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">BMI Calculator</a>
+          <a routerLink="/protein-calculator" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Protein Calculator</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Trackers <i class="fa fa-caret-down"></i></a>
+        <div class="dropdown-content">
+          <a routerLink="/water-tracker" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Water Tracker</a>
+          <a routerLink="/sleep-tracker" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Sleep Tracker</a>
+          <a routerLink="/calorie-tracker" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Calorie Tracker</a>
+          <a routerLink="/mood-tracker" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Mood Tracker</a>
+          <a routerLink="/menstrual-tracker" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Menstrual Tracker</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Planner <i class="fa fa-caret-down"></i></a>
+        <div class="dropdown-content">
+          <a routerLink="/workout-generator" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Workout Planner</a>
+          <a routerLink="/meal-planner" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Meal Planner</a>
+        </div>
+      </li>
+      <li><a routerLink="/mindfulness-tool" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Mindfulness</a></li>
+    </ul>
+    <ul class="nav-actions">
+      <li><a href="#" (click)="logout()" class="logout"><i class="fa fa-sign-out-alt"></i>Logout</a></li>
+    </ul>
+  </nav>
+</header>

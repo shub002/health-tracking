@@ -1,0 +1,29 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Login</h2>
+    <form (ngSubmit)="onLogin()">
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="username" name="username" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="password" name="password" type="password" required />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Login</button>
+
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    </form>
+
+    <!-- Register Link with Font Awesome Icon -->
+    <div class="register-link">
+      <p>Don't have an account? 
+        <a routerLink="/register" (click)="onRegisterClick()">
+          <i class="fa fa-user-plus"></i> Register
+        </a>
+      </p>
+    </div>
+  </div>
+</div>

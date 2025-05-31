@@ -1,0 +1,43 @@
+<mat-card class="water-tracker-card">
+    <div class="card-header">
+      <div class="title">
+        <h3><i class="fas fa-tint"></i> Water Tracker</h3>
+        <p>Stay hydrated! Keep track of your daily water intake</p>
+      </div>
+    </div>
+  
+    <div class="card-content">
+      <div class="progress-section">
+        <div class="progress-text">
+          <h2>{{ waterData.consumed.toFixed(1) }}L / {{ waterData.goal }}L</h2>
+          <p>{{ (waterData.goal - waterData.consumed).toFixed(1) }}L to reach your goal</p>
+        </div>
+  
+        <!-- Water Intake Progress -->
+        <mat-progress-bar
+          [value]="waterData.progress"
+          color="accent"
+          mode="determinate"
+          class="progress-bar"
+        ></mat-progress-bar>
+      </div>
+  
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button mat-raised-button color="primary" (click)="updateWaterIntake(0.5)">
+          Drink 0.5L
+        </button>
+        <button mat-raised-button color="accent" (click)="updateWaterIntake(1)">
+          Drink 1L
+        </button>
+        <button mat-raised-button color="warn" (click)="resetWaterIntake()">
+          Reset
+        </button>
+      </div>
+    </div>
+  
+    <div class="footer">
+      <p>Drink enough water for a healthy body and mind!</p>
+    </div>
+  </mat-card>
+  

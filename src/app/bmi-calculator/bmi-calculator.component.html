@@ -1,0 +1,76 @@
+<div class="bmi-professional-container">
+  <div class="bmi-card">
+    <h2 class="bmi-title">BMI Calculator</h2>
+    <form (ngSubmit)="calculateBmi()" #bmiForm="ngForm" class="bmi-form">
+      <div class="form-section">
+        <div class="unit-toggle">
+          <label class="toggle-label">Weight Unit:</label>
+          <button type="button" (click)="toggleWeightUnit()" class="toggle-btn" [ngClass]="{'active': isKg}">
+            {{ isKg ? 'Kg' : 'Lbs' }}
+          </button>
+        </div>
+        <div class="input-group">
+          <label for="weight">Weight ({{ isKg ? 'kg' : 'lbs' }}):</label>
+          <input type="number" id="weight" [(ngModel)]="weight" name="weight" required placeholder="Enter weight" />
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="unit-toggle">
+          <label class="toggle-label">Height Unit:</label>
+          <button type="button" (click)="toggleHeightUnit()" class="toggle-btn" [ngClass]="{'active': isCm}">
+            {{ isCm ? 'Cm' : 'Ft/In' }}
+          </button>
+        </div>
+        <div class="input-group">
+          <label for="height">Height ({{ isCm ? 'cm' : 'ft/in' }}):</label>
+          <div *ngIf="isCm">
+            <input type="number" id="height" [(ngModel)]="heightCm" name="heightCm" required placeholder="Height in cm" />
+          </div>
+          <div *ngIf="!isCm">
+            <input type="number" id="feet" [(ngModel)]="heightFt" name="heightFt" required placeholder="Feet" />
+            <input type="number" id="inches" [(ngModel)]="heightInches" name="heightInches" required placeholder="Inches" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" [disabled]="!bmiForm.valid" class="submit-btn">Calculate BMI</button>
+      </div>
+    </form>
+
+    <div *ngIf="bmiResult !== null" class="bmi-info">
+      <h3>Your BMI: {{ bmiResult | number: '1.2-2' }}</h3>
+      <div class="bmi-scale">
+        <div class="scale-indicator" [ngClass]="{
+          'severe-thinness': bmiCategory === 'severeThinness',
+          'moderate-thinness': bmiCategory === 'moderateThinness',
+          'mild-thinness': bmiCategory === 'mildThinness',
+          'normal': bmiCategory === 'normal',
+          'overweight': bmiCategory === 'overweight',
+          'obese-class-I': bmiCategory === 'obeseClassI',
+          'obese-class-II': bmiCategory === 'obeseClassII',
+          'obese-class-III': bmiCategory === 'obeseClassIII'
+        }"></div>
+      </div>
+
+      <div class="bmi-details">
+        <p><strong>BMI Information:</strong> BMI is a measure of body fat based on your weight in relation to your height.</p>
+        <p><strong>Why it is important:</strong> Knowing your BMI can help you determine if you're at risk for certain health conditions like heart disease, diabetes, and hypertension.</p>
+
+        <div *ngIf="bmiResult < 18.5">
+          <p><strong>Suggestions:</strong> You are underweight. Consider consulting a healthcare provider for a personalized plan to gain weight safely.</p>
+        </div>
+        <div *ngIf="bmiResult >= 18.5 && bmiResult <= 24.9">
+          <p><strong>Suggestions:</strong> Your BMI is normal. Maintain a balanced diet and regular physical activity to stay healthy.</p>
+        </div>
+        <div *ngIf="bmiResult >= 25 && bmiResult <= 29.9">
+          <p><strong>Suggestions:</strong> You are overweight. Consider adopting a healthy diet and exercise plan to reduce your weight.</p>
+        </div>
+        <div *ngIf="bmiResult >= 30">
+          <p><strong>Suggestions:</strong> You are obese. Consult a healthcare provider for weight loss strategies to reduce health risks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

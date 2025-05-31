@@ -1,0 +1,37 @@
+<div class="meal-plans-container">
+    <h2 class="title">Personalized Meal Plans</h2>
+  
+    <!-- User Preferences Form -->
+    <div class="form-section">
+      <h3 class="form-title">Customize Your Meal Plan</h3>
+      <p class="form-description">Select your dietary preferences and fitness goals:</p>
+  
+      <form (ngSubmit)="generateMealPlan()">
+        <div class="input-group">
+          <label for="dietPreference">Dietary Preference:</label>
+          <select [(ngModel)]="selectedDiet" name="dietPreference" required>
+            <option *ngFor="let diet of dietaryPreferences" [value]="diet">{{ diet }}</option>
+          </select>
+        </div>
+  
+        <div class="input-group">
+          <label for="goal">Fitness Goal:</label>
+          <select [(ngModel)]="selectedGoal" name="goal" required>
+            <option *ngFor="let goal of fitnessGoals" [value]="goal">{{ goal }}</option>
+          </select>
+        </div>
+  
+        <button type="submit" class="primary-btn">Generate Meal Plan</button>
+      </form>
+    </div>
+  
+    <!-- Meal Plan Display -->
+    <div *ngIf="mealPlan.length > 0" class="meal-plan-section fade-in">
+      <h3 class="section-title">Your Personalized Meal Plan</h3>
+      <ul class="meal-plan-list">
+        <li *ngFor="let meal of mealPlan" class="meal-item">{{ meal }}</li>
+      </ul>
+      <button class="secondary-btn" (click)="downloadMealPlan()">Download Meal Plan</button>
+    </div>
+  </div>
+  

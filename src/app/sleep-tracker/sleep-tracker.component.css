@@ -1,0 +1,102 @@
+/* Sleep Tracker Card */
+.sleep-tracker-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #6a1b9a, #ab47bc);
+    color: #fff;
+    margin: 20px auto;
+    max-width: 400px;
+    padding: 20px;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 20px;
+  }
+  
+  .title h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .title p {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  
+  .card-content {
+    padding-top: 20px;
+  }
+  
+  .progress-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .progress-text h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .progress-text p {
+    font-size: 1.2rem;
+  }
+  
+  .progress-bar {
+    width: 50%;
+  }
+  
+  .quality-section {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .quality-slider {
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  .action-buttons button {
+    margin: 10px 5px;
+    font-size: 1rem;
+    padding: 12px 24px;
+    border-radius: 30px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .action-buttons button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .footer {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    font-weight: 400;
+  }
+  
+  .footer p {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 10px 0;
+  }
+  
+  /* Custom Font Awesome styling for icons */
+  .mat-icon {
+    font-size: 3rem;
+    color: white;
+  }
+  
+  /* Hover effect for buttons */
+  button:active {
+    transform: scale(0.98);
+  }
+  

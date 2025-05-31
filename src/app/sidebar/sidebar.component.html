@@ -1,0 +1,23 @@
+<aside class="sidebar" [class.open]="isSidebarOpen" [class.collapsed]="isSidebarCollapsed">
+    <!-- Hamburger icon for mobile view -->
+    <button class="hamburger" (click)="toggleSidebar()">
+      <i class="fa fa-bars"></i>
+    </button>
+  
+    <nav>
+      <ul class="nav-list">
+        <li><a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-tachometer-alt"></i> <span *ngIf="!isSidebarCollapsed">Dashboard</span></a></li>
+        <li><a routerLink="/bmi-calculator" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-heart"></i> <span *ngIf="!isSidebarCollapsed">BMI Calculator</span></a></li>
+        <li><a routerLink="/protein-calculator" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-cogs"></i> <span *ngIf="!isSidebarCollapsed">Protein Calculator</span></a></li>
+        <li><a routerLink="/water-tracker" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-tint"></i> <span *ngIf="!isSidebarCollapsed">Water Tracker</span></a></li>
+        <li><a routerLink="/sleep-tracker" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-bed"></i> <span *ngIf="!isSidebarCollapsed">Sleep Tracker</span></a></li>
+        <li><a routerLink="/calorie-tracker" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-fire"></i> <span *ngIf="!isSidebarCollapsed">Calorie Tracker</span></a></li>
+        <li><a routerLink="/workout-planner" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-dumbbell"></i> <span *ngIf="!isSidebarCollapsed">Workout Planner</span></a></li>
+      </ul>
+    </nav>
+  
+    <button class="collapse-btn" (click)="toggleCollapse()">
+      <i class="fa" [ngClass]="isSidebarCollapsed ? 'fa-angle-right' : 'fa-angle-left'"></i>
+    </button>
+  </aside>
+  
