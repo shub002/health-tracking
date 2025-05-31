@@ -20,7 +20,7 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard], // Protect the dashboard route
+    // canActivate: [AuthGuard], // Protect the dashboard route
   },
   { path: 'bmi-calculator', component: BmiCalculatorComponent, canActivate: [AuthGuard] },
   { path: 'protein-calculator', component: ProteinCalculatorComponent, canActivate: [AuthGuard] },

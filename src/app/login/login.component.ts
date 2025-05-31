@@ -31,6 +31,7 @@ export class LoginComponent {
       user.username === this.username && user.password === this.password);
 
     if (user) {
+      alert(user)
       // Store the logged-in user in localStorage (optional)
       localStorage.setItem('currentUser', JSON.stringify(user));
       
